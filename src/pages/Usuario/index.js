@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
@@ -5,6 +7,8 @@ import { Button } from '@mui/material';
 import Sidebar from '../../components/Sidebar';
 
 export default function Usuario() {  
+
+  const navigate = useNavigate();
 
   const styles = {
     txtField: {
@@ -53,23 +57,39 @@ export default function Usuario() {
           backgroundColor: '#9c0036',
       }
     },
-    boxButton: {
-      width: '390px',
+    boxButtonInfo: {
+      width: '338px',
       height: '40px',
       mt: '40px',
       mb: '20px',
-      ml: '150px',
-      backgroundColor: '#af0351',
+      mr: '12px',
+      backgroundColor: '#ff7300',
       borderRadius: '10px',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#ff7fac',
-        color: '#af0351',
+          backgroundColor: '#de6021',
       }
-    },   
+    },
+    boxButtonLogout: {
+      width: '338px',
+      height: '40px',
+      mt: '40px',
+      mb: '20px',
+      ml: '12px',
+      backgroundColor: '#b80000',
+      borderRadius: '10px',
+      color: 'white',
+      '&:hover': {
+          backgroundColor: '#960000',
+      }
+    },
     box: {
       pt: '24px',
     },
+  };
+
+  const handleClick = (e) => {
+    navigate(`/`);
   };
 
   return (
@@ -81,9 +101,10 @@ export default function Usuario() {
               required
               fullWidth
               variant="outlined"
-              label="Idade"
+              label="Email"
               disableRipple
-              sx={styles.txtField}              
+              sx={styles.txtField}
+              disabled
           />
         </Box>
         <Box sx={styles.box}>
@@ -91,7 +112,7 @@ export default function Usuario() {
               required
               fullWidth
               variant="outlined"
-              label="Genero"
+              label="Nome"
               disableRipple
               sx={styles.txtField}
           />
@@ -101,55 +122,18 @@ export default function Usuario() {
               required
               fullWidth
               variant="outlined"
-              label="Generos Musicais"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Gosta Anime"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Gosta Series"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Animes"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Series"
+              label="Senha"
               disableRipple
               sx={styles.txtField}
           />
         </Box>                      
         <Box>
-          <Button disableRipple sx={styles.boxButton}>
-            Presente
-          </Button>          
+          <Button disableRipple sx={styles.boxButtonInfo}>
+            Alterar Informacoes
+          </Button>
+          <Button disableRipple sx={styles.boxButtonLogout} onClick={(e) => handleClick(e)}>
+            Sair
+          </Button>
         </Box>
       </Box>
     </Box >
