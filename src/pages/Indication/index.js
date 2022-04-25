@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
@@ -5,6 +6,7 @@ import { Button } from '@mui/material';
 import Sidebar from '../../components/Sidebar';
 
 export default function Usuario() {  
+  const navigate = useNavigate();
 
   const styles = {
     txtField: {
@@ -70,6 +72,10 @@ export default function Usuario() {
     box: {
       pt: '24px',
     },
+  };
+
+  const handleClickGift = (e) => {
+    navigate(`/gift`);
   };
 
   return (
@@ -147,7 +153,10 @@ export default function Usuario() {
           />
         </Box>                      
         <Box>
-          <Button disableRipple sx={styles.boxButton}>
+          <Button 
+            disableRipple sx={styles.boxButton}
+            onClick={(e)=> handleClickGift(e)}
+          >
             Presente
           </Button>          
         </Box>

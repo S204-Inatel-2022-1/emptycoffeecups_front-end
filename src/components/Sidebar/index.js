@@ -116,7 +116,7 @@ export default function Sidebar() {
           </Link>
         </List>
         <List>
-          <Link to="/usuario">
+          <Link to="/user">
             <ListItemButton disableRipple sx={styles.listItemButton}>
               <ListItemIcon>
                 <AccountBoxIcon sx={styles.color} />
