@@ -5,7 +5,7 @@ import Sidebar from '../../components/Sidebar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
+import logo from '../../assets/images/GiftTips.jpg';
 
 export default function Home() { 
   const navigate = useNavigate();
@@ -28,13 +28,13 @@ export default function Home() {
       p: 0,
     },
     container: {
-      width: '50%',
-      color: '#FFF',
+      width: '25%',
+      color: '#FFF',      
       background: '#ba0041',
       borderRadius: '10px',
-      boxShadow: '0 0 20px rgba(0,0,0,0.3)',
-      p: '10%',
-      m: '5% auto',              
+      boxShadow: '0 0 20px rgba(0,0,0,0.4)',
+      p: '2%',      
+      m: '3% auto',              
     },
     boxButtonNew: {      
       maxWidth: '30%',
@@ -61,7 +61,15 @@ export default function Home() {
       <Sidebar /> 
       <Box sx={styles.boxMid}>
         <Box sx={styles.container}>
-          <Typography>Logo</Typography>                                  
+          <Box 
+            component="img"
+            sx={{
+              height: '100%',
+              width: '100%',
+              borderRadius: '10px',
+            }} 
+            src={logo}
+          />                                         
         </Box>
           <Typography sx={styles.txt}>Texto dissertativo é um formato de escrita que busca defender uma ideia central a partir da argumentação, valendo-se, portanto, de opiniões e provas, como dados, levantamentos, estatísticas, fatos, exemplos e quaisquer outros elementos que sejam capazes de sustentar a tese apresentada.</Typography>
         <Button

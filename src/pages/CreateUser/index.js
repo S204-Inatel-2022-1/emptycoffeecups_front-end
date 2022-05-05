@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { TextField, Typography, Button } from '@mui/material';
+import { TextField,  Button } from '@mui/material';
 
+import logo from '../../assets/images/GiftTips.jpg';
 
 import presentes from '../../assets/images/presentes.jpg';
 
@@ -61,7 +62,8 @@ export default function CreateUser() {
       borderRadius: '10px',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#de6021',
+        backgroundColor: '#ff7fac',
+        color: '#af0351',
       }
     },
     box: {
@@ -128,9 +130,15 @@ export default function CreateUser() {
               </IconButton>
             </Box>
             <Box sx={styles.boxText}>
-              <Typography sx={styles.text}>
-                LOGO
-              </Typography>
+              <Box 
+                component="img"
+                sx={{
+                  height: '90%',
+                  width: '113%',
+                  borderRadius: '10px',
+                }} 
+                src={logo}
+              />             
             </Box>
           </Box>
           <Box sx={styles.boxForm}>
