@@ -63,11 +63,12 @@ export default function Usuario() {
       mt: '40px',
       mb: '20px',
       mr: '12px',
-      backgroundColor: '#ff7300',
+      backgroundColor: '#af0351',
       borderRadius: '10px',
       color: 'white',
       '&:hover': {
-          backgroundColor: '#de6021',
+        backgroundColor: '#ff7fac',
+        color: '#af0351',
       }
     },
     boxButtonLogout: {
@@ -76,11 +77,12 @@ export default function Usuario() {
       mt: '40px',
       mb: '20px',
       ml: '12px',
-      backgroundColor: '#b80000',
+      backgroundColor: '#af0351',
       borderRadius: '10px',
       color: 'white',
       '&:hover': {
-          backgroundColor: '#960000',
+        backgroundColor: '#ff7fac',
+        color: '#af0351',
       }
     },
     box: {

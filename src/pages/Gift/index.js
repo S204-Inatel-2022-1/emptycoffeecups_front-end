@@ -28,10 +28,10 @@ export default function Usuario() {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',     
-      p: '15%',
+      p: '10%',
     },
     boxButton: {
-      width: '390px',
+      width: '100%',
       height: '40px',     
       backgroundColor: '#af0351',
       borderRadius: '10px',
@@ -118,7 +118,7 @@ export default function Usuario() {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'baseline',
-                        mb: 2,
+                        mb: 2,                        
                       }}
                     >
                     <ImageListItem >
