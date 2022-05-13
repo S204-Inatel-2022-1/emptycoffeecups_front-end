@@ -159,6 +159,7 @@ export default function Login() {
                         label="Senha"
                         disableRipple
                         sx={styles.txtField}
+                        type = "password"
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" sx={styles.checkbox} disableRipple />}
