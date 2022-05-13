@@ -1,13 +1,137 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import { useTheme } from '@mui/material/styles';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Chip from '@mui/material/Chip';
+import InputLabel from '@mui/material/InputLabel';
 
 import Sidebar from '../../components/Sidebar';
 
-export default function Usuario() {  
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const namesAnime = [
+  'Fullmetal Alchemist: Brotherhood',
+  'Kakegurui',
+  "JoJo's Bizarre Adventure",
+  'Tokyo Revengers',
+  'Record of Ragnarok',
+  'Bleach',
+  'Death Note',
+  'One-Punch Man',
+  'Shingeki no Kyojin',
+  'Kimetsu no Yaiba',
+];
+
+const namesSerie = [
+  'Game of Thrones',
+  'This Is Us',
+  "Modern Family",
+  'Stranger Things',
+  'The Walking Dead',
+  'Orange Is the New Black',
+  'CSI',
+  'Lost',
+  'La Casa de Papel',
+  'Lupin',
+];
+
+const namesMusical = [
+  'Axé',
+  'Blues',
+  "Country",
+  'Eletrônica',
+  'Forró',
+  'Funk',
+  'Gospel',
+  'Hip Hop',
+  'MPB',
+  'Rock',
+  'Samba',
+  'Sertanejo',
+];
+
+function getStyles(name, names, theme) {
+  return {
+    fontWeight:
+      names.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
+
+export default function Indication() {  
+
+  const [idade, setIdade] = useState('');
+  const [genero, setGenero] = useState('');
+  const [generoMusical, setGeneroMusical] = useState([]);
+  const [gostaAnime, setGostaAnime] = useState('');
+  const [gostaSerie, setGostaSerie] = useState('');
+  const [anime, setAnime] = useState([]);
+  const [serie, setSerie] = useState([]);
+
   const navigate = useNavigate();
 
+  const handleClickGift = async () => {
+    // const data = {
+    //   idade: idade,
+    //   genero: genero,
+    //   generoMusical: generoMusical,
+    //   gostaAnime: gostaAnime,
+    //   gostaSerie: gostaSerie,
+    //   anime: anime,
+    //   serie: serie,
+    // };
+
+    //const gifts = await getGift(data)
+    navigate(`/gift`);
+  };
+
+  const theme = useTheme();
+  const handleChangeAnime = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setAnime(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+  const handleChangeSerie = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setSerie(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+  const handleChangeGeneroMusical = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setGeneroMusical(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+  
   const styles = {
     txtField: {
       width: '700px',
@@ -74,92 +198,184 @@ export default function Usuario() {
     },
   };
 
-  const handleClickGift = (e) => {
-    navigate(`/gift`);
-  };
-
   return (
     <Box sx={styles.boxPage}>
       <Sidebar />      
       <Box sx={styles.container}>
         <Box sx={styles.box}>
           <TextField
-              required
+              id={Math.random().toString()}
+              type="number"
               fullWidth
               variant="outlined"
-              label="Idade"
-              disableRipple
-              sx={styles.txtField}              
+              label="Idade"              
+              sx={styles.txtField}  
+              value={idade} 
+              onChange={(e) => setIdade(e.target.value)}           
           />
         </Box>
         <Box sx={styles.box}>
           <TextField
-              required
+              id={Math.random().toString()}
               fullWidth
               variant="outlined"
-              label="Genero"
-              disableRipple
+              label="Gênero"              
+              select
               sx={styles.txtField}
-          />
+              value={genero} 
+              onChange={(e) => setGenero(e.target.value)}  
+              >
+              <MenuItem value="">{"None"}</MenuItem>
+              <MenuItem value="feminino">{"Feminino"}</MenuItem>
+              <MenuItem value="masculino">{"Masculino"}</MenuItem>
+            </TextField>
         </Box>
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Generos Musicais"
-              disableRipple
-              sx={styles.txtField}
-          />
+        <Box sx={styles.box}>          
+          <FormControl sx={styles.txtField}>                               
+            <InputLabel id="demo-multiple-generosmusicais-label">Gêneros Musicais</InputLabel>
+              <Select
+                labelId="demo-multiple-generosmusicais-label"
+                id="demo-multiple-generosmusicais"
+                multiple
+                value={generoMusical}
+                onChange={handleChangeGeneroMusical}
+                input={<OutlinedInput id="select-multiple-generosmusicais" label="Gêneros Musicais" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {namesMusical.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, generoMusical, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+          </FormControl>
         </Box>  
         <Box sx={styles.box}>
           <TextField
-              required
+              id={Math.random().toString()}
               fullWidth
               variant="outlined"
-              label="Gosta Anime"
-              disableRipple
+              label="Gosta de Animes"              
+              select
               sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Gosta Series"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Animes"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>  
-        <Box sx={styles.box}>
-          <TextField
-              required
-              fullWidth
-              variant="outlined"
-              label="Series"
-              disableRipple
-              sx={styles.txtField}
-          />
-        </Box>                      
-        <Box>
-          <Button 
-            disableRipple sx={styles.boxButton}
-            onClick={(e)=> handleClickGift(e)}
+              value={gostaAnime} 
+              onChange={(e) => setGostaAnime(e.target.value)}  
           >
-            Presente
-          </Button>          
-        </Box>
+            <MenuItem value="">{"None"}</MenuItem>
+            <MenuItem value={true}>{"Sim"}</MenuItem>
+            <MenuItem value={false}>{"Não"}</MenuItem>
+          </TextField>
+        </Box>  
+        <Box sx={styles.box}>
+          <TextField
+              id={Math.random().toString()}
+              fullWidth
+              variant="outlined"
+              label="Gosta de Séries"              
+              sx={styles.txtField}
+              value={gostaSerie} 
+              select
+              onChange={(e) => setGostaSerie(e.target.value)}  
+          >
+            <MenuItem value="">{"None"}</MenuItem>
+            <MenuItem value={true}>{"Sim"}</MenuItem>
+            <MenuItem value={false}>{"Não"}</MenuItem>
+          </TextField>
+        </Box>  
+        <Box sx={styles.box}> 
+          <FormControl sx={styles.txtField}>                               
+            <InputLabel id="demo-multiple-anime-label">Animes</InputLabel>
+              <Select
+                labelId="demo-multiple-anime-label"
+                id="demo-multiple-anime"
+                multiple
+                value={anime}
+                onChange={handleChangeAnime}
+                input={<OutlinedInput id="select-multiple-anime" label="Animes" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {namesAnime.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, anime, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+          </FormControl>              
+        </Box>  
+        <Box sx={styles.box}>          
+          <FormControl sx={styles.txtField}>                               
+            <InputLabel id="demo-multiple-series-label">Séries</InputLabel>
+              <Select
+                labelId="demo-multiple-serie-label"
+                id="demo-multiple-series"
+                multiple
+                value={serie}
+                onChange={handleChangeSerie}
+                input={<OutlinedInput id="select-multiple-series" label="Séries" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {namesSerie.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, serie, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+          </FormControl>   
+        </Box>           
+        {((idade !== "" || genero !== "" || generoMusical !== "" || gostaAnime !== "" || gostaSerie !== "" || serie !== "") && (idade === "" || idade > 0))
+          ? (
+            <Box>
+              <Button 
+                sx={styles.boxButton}
+                onClick={(e)=> handleClickGift(e)}
+              >
+                Presente
+              </Button>          
+            </Box>
+          )
+          : (
+            <Box>
+              <Button 
+                disabled  
+                sx={styles.boxButton}                
+              >
+                Presente
+              </Button>          
+            </Box>
+          )}
       </Box>
     </Box >
   )

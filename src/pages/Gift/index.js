@@ -9,10 +9,11 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import ImageListItem from '@mui/material/ImageListItem';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 import Sidebar from '../../components/Sidebar';
 
-export default function Usuario() {    
+export default function Gift() {    
   const styles = {     
     boxPage: {
       width: '100%',
@@ -40,6 +41,10 @@ export default function Usuario() {
         backgroundColor: '#ff7fac',
         color: '#af0351',
       }
+    },
+    color: {
+      width: '60px',
+      height: '40px',
     },
   };
 
@@ -143,7 +148,7 @@ export default function Usuario() {
                     disableRipple sx={styles.boxButton}
                     onClick={(e)=> handleClickReview(gift)}                    
                   >                   
-                    Review                                      
+                    <YouTubeIcon sx={styles.color} />                                     
                   </Button>   
                   </CardActions>
                 </Card>
