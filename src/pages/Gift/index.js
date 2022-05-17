@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import * as React from 'react';
+import { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,8 +13,14 @@ import ImageListItem from '@mui/material/ImageListItem';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
 import Sidebar from '../../components/Sidebar';
+import { Context } from '../../contexts/context';
 
-export default function Gift() {    
+export default function Gift() {  
+  
+  const { 
+    currentGifts,
+  } = useContext(Context);
+
   const styles = {     
     boxPage: {
       width: '100%',

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -12,6 +12,8 @@ import Chip from '@mui/material/Chip';
 import InputLabel from '@mui/material/InputLabel';
 
 import Sidebar from '../../components/Sidebar';
+import Client from '../../resources/entitiesClient';
+import { Context } from '../../contexts/context';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -84,20 +86,26 @@ export default function Indication() {
   const [anime, setAnime] = useState([]);
   const [serie, setSerie] = useState([]);
 
+  const { 
+    setCurrentGifts,
+  } = useContext(Context);
+
   const navigate = useNavigate();
 
   const handleClickGift = async () => {
-    // const data = {
-    //   idade: idade,
-    //   genero: genero,
-    //   generoMusical: generoMusical,
-    //   gostaAnime: gostaAnime,
-    //   gostaSerie: gostaSerie,
-    //   anime: anime,
-    //   serie: serie,
-    // };
+    const data = {
+      idade: idade,
+      genero: genero,
+      generoMusical: generoMusical,
+      gostaAnime: gostaAnime,
+      gostaSerie: gostaSerie,
+      anime: anime,
+      serie: serie,
+    };
 
-    //const gifts = await getGift(data)
+    const gifts = await Client.getGifts(data)
+    setCurrentGifts(gifts)
+
     navigate(`/gift`);
   };
 
