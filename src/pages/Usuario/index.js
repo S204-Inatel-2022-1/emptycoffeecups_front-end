@@ -100,6 +100,7 @@ export default function Usuario() {
       <Box sx={styles.container}>
         <Box sx={styles.box}>
           <TextField
+              id = 'input-usuario'
               required
               fullWidth
               variant="outlined"
@@ -111,6 +112,7 @@ export default function Usuario() {
         </Box>
         <Box sx={styles.box}>
           <TextField
+              id = 'input-nomeusuario'
               required
               fullWidth
               variant="outlined"
@@ -121,6 +123,7 @@ export default function Usuario() {
         </Box>
         <Box sx={styles.box}>
           <TextField
+              id = 'input-senhausuario'
               required
               fullWidth
               variant="outlined"
@@ -133,7 +136,7 @@ export default function Usuario() {
           <Button disableRipple sx={styles.boxButtonInfo}>
             Alterar Informacoes
           </Button>
-          <Button disableRipple sx={styles.boxButtonLogout} onClick={(e) => handleClick(e)}>
+          <Button disableRipple sx={styles.boxButtonLogout} onClick={(e) => handleClick(e)} id = 'btn-sair'>
             Sair
           </Button>
         </Box>

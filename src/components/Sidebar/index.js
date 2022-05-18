@@ -107,7 +107,7 @@ export default function Sidebar() {
         </Box>
         <List>
           <Link to="/home">
-            <ListItemButton disableRipple sx={styles.listItemButton}>
+            <ListItemButton disableRipple sx={styles.listItemButton} id = 'side-home'>
               <ListItemIcon>
                 <HomeIcon sx={styles.color} />
               </ListItemIcon>
@@ -117,7 +117,7 @@ export default function Sidebar() {
         </List>
         <List>
           <Link to="/user">
-            <ListItemButton disableRipple sx={styles.listItemButton}>
+            <ListItemButton disableRipple sx={styles.listItemButton} id = 'side-user'>
               <ListItemIcon>
                 <AccountBoxIcon sx={styles.color} />
               </ListItemIcon>
@@ -127,7 +127,7 @@ export default function Sidebar() {
         </List>
         <List>
           <Link to="/indication">
-            <ListItemButton disableRipple sx={styles.listItemButton}>
+            <ListItemButton disableRipple sx={styles.listItemButton} id = 'side-indicacao'>
               <ListItemIcon>
                 <RedeemIcon sx={styles.color} />
               </ListItemIcon>

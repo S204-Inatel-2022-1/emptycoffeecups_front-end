@@ -143,6 +143,7 @@ export default function CreateUser() {
           </Box>
           <Box sx={styles.boxForm}>
             <TextField
+              id = 'input-newemail'
               required
               fullWidth
               variant="outlined"
@@ -151,6 +152,7 @@ export default function CreateUser() {
               sx={styles.txtField}
             />
             <TextField
+              id = 'input-newnome'
               required
               fullWidth
               variant="outlined"
@@ -159,6 +161,7 @@ export default function CreateUser() {
               sx={styles.txtField}
             />
             <TextField
+              id = 'input-newsenha'
               required
               fullWidth
               variant="outlined"

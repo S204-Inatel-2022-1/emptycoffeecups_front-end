@@ -145,6 +145,7 @@ export default function Login() {
                     </Box>
 
                     <TextField
+                        id = 'input-email'
                         required
                         fullWidth
                         variant="outlined"
@@ -153,6 +154,7 @@ export default function Login() {
                         sx={styles.txtField}
                     />
                     <TextField
+                        id = 'input-senha'
                         required
                         fullWidth
                         variant="outlined"
@@ -166,6 +168,7 @@ export default function Login() {
                         label="Lembre de mim"
                     />
                     <Button
+                        id = 'btn-entrar'
                         fullWidth
                         disableRipple
                         sx={styles.boxButtonNew}
@@ -175,6 +178,7 @@ export default function Login() {
                     </Button>
 
                     <Button
+                        id = 'btn-visitante'
                         fullWidth
                         disableRipple
                         sx={styles.boxButtonNew}
@@ -188,6 +192,7 @@ export default function Login() {
                             Não possui uma conta?
                         </Typography>
                         <Button
+                            id = 'btn-criar'
                             startIcon={<AddIcon />}
                             sx={styles.boxButtonCreate}
                             disableRipple
