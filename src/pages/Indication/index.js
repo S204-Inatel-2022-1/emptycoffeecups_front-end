@@ -212,7 +212,7 @@ export default function Indication() {
       <Box sx={styles.container}>
         <Box sx={styles.box}>
           <TextField
-              id={Math.random().toString()}
+              id = 'input-idade'
               type="number"
               fullWidth
               variant="outlined"
@@ -224,7 +224,7 @@ export default function Indication() {
         </Box>
         <Box sx={styles.box}>
           <TextField
-              id={Math.random().toString()}
+              id='input-genero'
               fullWidth
               variant="outlined"
               label="Gênero"              
@@ -243,7 +243,7 @@ export default function Indication() {
             <InputLabel id="demo-multiple-generosmusicais-label">Gêneros Musicais</InputLabel>
               <Select
                 labelId="demo-multiple-generosmusicais-label"
-                id="demo-multiple-generosmusicais"
+                id='demo-multiple-generosmusicais'
                 multiple
                 value={generoMusical}
                 onChange={handleChangeGeneroMusical}
@@ -271,7 +271,7 @@ export default function Indication() {
         </Box>  
         <Box sx={styles.box}>
           <TextField
-              id={Math.random().toString()}
+              id='input-gostar-anime'
               fullWidth
               variant="outlined"
               label="Gosta de Animes"              
@@ -287,7 +287,7 @@ export default function Indication() {
         </Box>  
         <Box sx={styles.box}>
           <TextField
-              id={Math.random().toString()}
+              id='input-gostar-serie'
               fullWidth
               variant="outlined"
               label="Gosta de Séries"              
@@ -367,6 +367,7 @@ export default function Indication() {
           ? (
             <Box>
               <Button 
+                id = 'btn-presente'
                 sx={styles.boxButton}
                 onClick={(e)=> handleClickGift(e)}
               >
