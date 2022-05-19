@@ -71,7 +71,8 @@ export default function Home() {
             src={logo}
           />                                         
         </Box>
-          <Typography sx={styles.txt}>Texto dissertativo é um formato de escrita que busca defender uma ideia central a partir da argumentação, valendo-se, portanto, de opiniões e provas, como dados, levantamentos, estatísticas, fatos, exemplos e quaisquer outros elementos que sejam capazes de sustentar a tese apresentada.</Typography>
+          <Typography sx={styles.txt}>Dificuldades em encontrar o presente ideal?
+            Não se preocupe, nós criamos o GiftTips justamente para te ajudar com esse problema!!</Typography>
         <Button
           id = 'btn-indicacao'
           fullWidth
