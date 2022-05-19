@@ -42,12 +42,6 @@ describe("Testando Login e visitante", () => {
 
         cy.get('#btn-presente').click();
     })
-
-    //Resultado e Youtube
-    it("Pagina GIFT e youtube",() => {
-        cy.visit("http://localhost:3000/gift");
-        cy.get('#btn-yt').click();
-    })
     
     //Sidebar
     it("Pagina HOME sidebar", () => {
@@ -70,4 +64,9 @@ describe("Testando Login e visitante", () => {
         cy.get('#btn-sair').click();
     })
     
+    //Resultado e Youtube
+    it("Pagina GIFT e youtube",() => {
+        cy.visit("http://localhost:3000/gift");
+        cy.get('#btn-yt').click();
+    })
 })

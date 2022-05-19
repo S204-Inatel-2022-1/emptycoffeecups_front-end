@@ -59,6 +59,7 @@ export default function Gift() {
     {
       id:1,
       name: 'Presente 1',
+      subheader: 'Mais indicado',
       image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',      
       description: [
         '10 users included',
@@ -69,8 +70,7 @@ export default function Gift() {
     },
     {
       id:2,
-      name: 'Presente 2',
-      subheader: 'Most popular', 
+      name: 'Presente 2', 
       image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',         
       description: [
         '20 users included',
