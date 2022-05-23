@@ -53,47 +53,49 @@ export default function Gift() {
       width: '60px',
       height: '40px',
     },
-  };
+  }; 
 
-  const gifts = [
-    {
-      id:1,
-      name: 'Presente 1',
-      subheader: 'Mais indicado',
-      image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',      
-      description: [
-        '10 users included',
-        '2 GB of storage',
-        'Help center access',
-        'Email support',
-      ],      
-    },
-    {
-      id:2,
-      name: 'Presente 2', 
-      image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',         
-      description: [
-        '20 users included',
-        '10 GB of storage',
-        'Help center access',
-        'Priority email support',
-      ],    
-    },
-    {
-      id:3,
-      name: 'Presente 3',
-      image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',          
-      description: [
-        '50 users included',
-        '30 GB of storage',
-        'Help center access',
-        'Phone & email support',
-      ],      
-    },
-  ];
+  const gifts = currentGifts.data
+
+  // const gifts = [
+  //   {
+  //     id:1,
+  //     name: 'Presente 1',
+  //     subheader: 'Mais indicado',
+  //     image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',      
+  //     description: [
+  //       '10 users included',
+  //       '2 GB of storage',
+  //       'Help center access',
+  //       'Email support',
+  //     ],      
+  //   },
+  //   {
+  //     id:2,
+  //     name: 'Presente 2', 
+  //     image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',         
+  //     description: [
+  //       '20 users included',
+  //       '10 GB of storage',
+  //       'Help center access',
+  //       'Priority email support',
+  //     ],    
+  //   },
+  //   {
+  //     id:3,
+  //     name: 'Presente 3',
+  //     image: 'https://veja.abril.com.br/wp-content/uploads/2016/12/presente.jpg?quality=70&strip=all',          
+  //     description: [
+  //       '50 users included',
+  //       '30 GB of storage',
+  //       'Help center access',
+  //       'Phone & email support',
+  //     ],      
+  //   },
+  // ];
 
   const handleClickReview = (e) => {
-    window.open(`https://www.youtube.com/results?search_query=${e.name} Review`)
+    window.open(`https://www.youtube.com/results?search_query=${e.nome} Review`)
   };
 
   return (
@@ -106,13 +108,13 @@ export default function Gift() {
               
               <Grid
                 item
-                key={gift.id}
+                key={gift._id}
                 xs={12}                
                 md={4}
               >
                 <Card>
                   <CardHeader
-                    title={gift.name}
+                    title={gift.nome}
                     subheader={gift.subheader}
                     titleTypographyProps={{ align: 'center' }}                    
                     subheaderTypographyProps={{
@@ -134,11 +136,11 @@ export default function Gift() {
                       }}
                     >
                     <ImageListItem >
-                      <img alt='img' src={gift.image}/>  
+                      <img alt='img' src={gift.foto}/>  
                     </ImageListItem>                                                          
                     </Box>
                     <ul>
-                      {gift.description.map((line) => (
+                      {gift.tags.map((line) => (
                         <Typography
                           component="li"
                           variant="subtitle1"

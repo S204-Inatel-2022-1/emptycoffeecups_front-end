@@ -27,16 +27,14 @@ const MenuProps = {
 };
 
 const namesAnime = [
-  'Fullmetal Alchemist: Brotherhood',
-  'Kakegurui',
-  "JoJo's Bizarre Adventure",
-  'Tokyo Revengers',
-  'Record of Ragnarok',
-  'Bleach',
-  'Death Note',
-  'One-Punch Man',
-  'Shingeki no Kyojin',
   'Kimetsu no Yaiba',
+  'Boku no Hero',
+  "Pokemon",
+  'Shinjeki no Kyogin',
+  'Cavaleiros do Zodíaco',
+  'Dragon Ball',
+  'One Piece',
+  'Naruto',
 ];
 
 const namesSerie = [
@@ -52,20 +50,20 @@ const namesSerie = [
   'Lupin',
 ];
 
-const namesMusical = [
-  'Axé',
-  'Blues',
-  "Country",
-  'Eletrônica',
-  'Forró',
-  'Funk',
-  'Gospel',
-  'Hip Hop',
-  'MPB',
-  'Rock',
-  'Samba',
-  'Sertanejo',
-];
+// const namesMusical = [
+//   'Axé',
+//   'Blues',
+//   "Country",
+//   'Eletrônica',
+//   'Forró',
+//   'Funk',
+//   'Gospel',
+//   'Hip Hop',
+//   'MPB',
+//   'Rock',
+//   'Samba',
+//   'Sertanejo',
+// ];
 
 function getStyles(name, names, theme) {
   return {
@@ -80,7 +78,7 @@ export default function Indication() {
 
   const [idade, setIdade] = useState('');
   const [genero, setGenero] = useState('');
-  const [generoMusical, setGeneroMusical] = useState([]);
+  // const [generoMusical, setGeneroMusical] = useState([]);
   const [gostaAnime, setGostaAnime] = useState('');
   const [gostaSerie, setGostaSerie] = useState('');
   const [anime, setAnime] = useState([]);
@@ -94,9 +92,8 @@ export default function Indication() {
 
   const handleClickGift = async () => {
     const data = {
-      idade: idade,
+      idade: parseInt(idade),
       genero: genero,
-      generoMusical: generoMusical,
       gostaAnime: gostaAnime,
       gostaSerie: gostaSerie,
       anime: anime,
@@ -130,15 +127,15 @@ export default function Indication() {
     );
   };
 
-  const handleChangeGeneroMusical = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setGeneroMusical(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
+  // const handleChangeGeneroMusical = (event) => {
+  //   const {
+  //     target: { value },
+  //   } = event;
+  //   setGeneroMusical(
+  //     // On autofill we get a stringified value.
+  //     typeof value === 'string' ? value.split(',') : value,
+  //   );
+  // };
   
   const styles = {
     txtField: {
@@ -234,11 +231,12 @@ export default function Indication() {
               onChange={(e) => setGenero(e.target.value)}  
               >
               <MenuItem value="">{"None"}</MenuItem>
-              <MenuItem value="feminino">{"Feminino"}</MenuItem>
-              <MenuItem value="masculino">{"Masculino"}</MenuItem>
+              <MenuItem value="Unissex">{"Unissex"}</MenuItem>
+              <MenuItem value="Feminino">{"Feminino"}</MenuItem>
+              <MenuItem value="Masculino">{"Masculino"}</MenuItem>
             </TextField>
         </Box>
-        <Box sx={styles.box}>          
+        {/* <Box sx={styles.box}>          
           <FormControl sx={styles.txtField}>                               
             <InputLabel id="demo-multiple-generosmusicais-label">Gêneros Musicais</InputLabel>
               <Select
@@ -268,7 +266,7 @@ export default function Indication() {
                 ))}
               </Select>
           </FormControl>
-        </Box>  
+        </Box>   */}
         <Box sx={styles.box}>
           <TextField
               id='input-gostar-anime'
@@ -363,7 +361,7 @@ export default function Indication() {
               </Select>
           </FormControl>   
         </Box>           
-        {((idade !== "" || genero !== "" || generoMusical !== "" || gostaAnime !== "" || gostaSerie !== "" || serie !== "") && (idade === "" || idade > 0))
+        {((idade !== "" || genero !== "" || gostaAnime !== "" || gostaSerie !== "" || serie !== "") && (idade === "" || idade > 0))
           ? (
             <Box>
               <Button 
